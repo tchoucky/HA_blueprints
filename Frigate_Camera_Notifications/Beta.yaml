@@ -919,7 +919,7 @@ action:
           - "{{ not this.attributes.last_triggered or (now() - this.attributes.last_triggered).seconds > cooldown }}"
           - "{{ not disable_times|length or not now().hour in disable_times|map('int')|list }}"
           - "{{ type|select('in', 'new')|list|length>0 }}"
-          - "{{ input_camera_name|select('in', camera)|list|length>0 }}"
+          - "{{ name|select('in', camera)|list|length>0 }}"
         sequence:
           - variables:
               event: "{{ trigger.payload_json }}"
